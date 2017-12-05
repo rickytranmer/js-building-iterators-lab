@@ -2,9 +2,18 @@
 // Don't worry about initialValue at first. You can always add it in later.
 
 function myReduce(arr, callback) {
-
-//  CODE INSIDE HERE   //
-
+	if (arguments.length == 3) {
+		var accumulator = arguments[2];
+		var i = 0;
+	} else {
+		var accumulator = arr[0];
+		var i = 1;
+	}
+	while (i < arr.length) {
+		accumulator = callback(accumulator, arr[i], i, arr);
+		i++;
+	}
+	return accumulator;
 }
 
 /*
